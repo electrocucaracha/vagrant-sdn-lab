@@ -1,11 +1,10 @@
-# SDN lab on Vagrant
+# Software-Defined Networking Lab on Vagrant
 
-This vagrant project pretends to deploy a Software-defined networking
-lab using [OpenDaylight][1] as Controller and [Mininet][2] as
-Virtualized Infrastructure Manager (VIM). The openDayLight User
-eXperience feature is installed during the provisioning script, as
-consequence it's possible to visualize the topology thru the following
-URL -> http://10.0.0.2:8181/index.html#/topology
+This vagrant project pretends to deploy a SDN lab using [OpenDaylight][1]
+as Controller and [Mininet][2] as Virtualized Infrastructure Manager (VIM).
+The openDayLight User eXperience feature is installed during the
+provisioning script, as consequence it's possible to visualize the topology
+thru the following URL -> http://10.0.0.2:8181/index.html#/topology
 
 ## Requirements:
 
@@ -14,20 +13,22 @@ URL -> http://10.0.0.2:8181/index.html#/topology
 
 ## Steps for execution:
 
-    git clone https://github.com/electrocucaracha/vagrant-sdn-lab.git
-    cd vagrant-sdn-lab
-    vagrant up
+    $ git clone https://github.com/electrocucaracha/vagrant-sdn-lab.git
+    $ cd vagrant-sdn-lab
+    $ vagrant up
 
 ## Destroy:
 
-    vagrant destroy
+    $ vagrant destroy
 
 ### Examples
 
-The following example creates a linear topology of 3 connected hosts
-and using the ODL deployed locally as remote SDN controller 
+The ~/topologies folder contains python scripts to create custom topologies.
+For example, the following command uses the example01.py file to create a
+linear topology of 2 connected hosts and uses the ODL deployed locally as
+remote SDN controller.
 
-    $ sudo mn --topo linear,3 --mac --controller=remote,ip=127.0.0.1,port=6633 --switch ovs,protocols=OpenFlow13
+    $ sudo mn --custom ~/topologies/example01.py --topo mytopo --controller=remote,ip=127.0.0.1,port=6633
     mininet> pingall
 
 [1]: https://www.opendaylight.org/

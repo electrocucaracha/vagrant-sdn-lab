@@ -8,6 +8,7 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/trusty64"
   config.vm.network :private_network, ip: "10.0.0.2"
+  config.vm.synced_folder './topologies', '/home/vagrant/topologies/', create: true
   config.vm.provision "shell", path: "postinstall.sh"
   config.vm.provider "virtualbox" do |v| 
     v.customize ["modifyvm", :id, "--memory", 4 * 1024]
