@@ -4,7 +4,7 @@ apt-get update -y
 apt-get install -y software-properties-common
 add-apt-repository -y ppa:openjdk-r/ppa
 apt-get update -y
-apt-get install -y git openjdk-8-jdk maven git
+apt-get install -y openjdk-8-jdk git
 
 
 # Mininet installation
@@ -20,6 +20,3 @@ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre
 ./bin/start
 sleep 180
 ./bin/client feature:install odl-dlux-core odl-dluxapps-topology odl-restconf odl-l2switch-switch
-
-# mn --test pingall
-# mn --topo linear,3 --mac --controller=remote,ip=127.0.0.1,port=6633 --switch ovs,protocols=OpenFlow13
