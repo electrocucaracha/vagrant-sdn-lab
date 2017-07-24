@@ -12,9 +12,11 @@ git clone https://github.com/mininet/mininet
 bash mininet/util/install.sh
 
 # ODL Installation
-wget https://nexus.opendaylight.org/content/groups/public/org/opendaylight/integration/distribution-karaf/0.6.0-Carbon/distribution-karaf-0.6.0-Carbon.tar.gz
-tar xvf distribution-karaf-0.6.0-Carbon.tar.gz
-cd distribution-karaf-0.6.0-Carbon
+odl_release=0.6.0-Carbon
+odl_distribution=distribution-karaf
+wget https://nexus.opendaylight.org/content/groups/public/org/opendaylight/integration/$odl_distribution/$odl_release/$odl_distribution-$odl_release.tar.gz
+tar xvf $odl_distribution-$odl_release.tar.gz
+cd $odl_distribution-$odl_release
 
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre
 ./bin/start
